@@ -171,133 +171,140 @@
 
 
   <!-- CTA + FORMULÁRIO -->
-  <section class="section-cta" id="cta">
-    <div class="cta-inner cta-inner--form">
+  <section class="section-cta section-cta--split" id="cta">
+    <div class="cta-split-inner">
 
-      <!-- Cabeçalho -->
-      <div class="cta-intro reveal">
+      <!-- Coluna esquerda: texto âncora -->
+      <div class="cta-col-text reveal">
         <span class="cta-tag">Próximo passo</span>
         <h2 class="cta-h2">
           Seu negócio não precisa<br />
           <em>falar mais alto.</em>
         </h2>
-        <p class="cta-p">Preencha o formulário e entro em contato em até 24h.</p>
+        <p class="cta-p">
+          Preencha o formulário ao lado e entro em contato em até 24h.
+        </p>
+        <div class="cta-divider"></div>
+        <p class="cta-detail">Atendo negócios locais que querem crescer de forma consistente — não apenas aparecer.</p>
       </div>
 
-      <!-- Formulário
-           ATENÇÃO: substitua YOUR_FORM_ID pelo ID gerado no formspree.io -->
-      <form
-        class="contact-form reveal reveal-d2"
-        action="https://formspree.io/f/YOUR_FORM_ID"
-        method="POST"
-        novalidate
-      >
-        <!-- Campo oculto: direciona as respostas para o e-mail correto -->
-        <input type="hidden" name="_replyto" value="j.barbosa02@hotmail.com" />
-        <input type="hidden" name="_subject" value="Novo contato — JBARBOSA" />
+      <!-- Coluna direita: card branco com formulário -->
+      <div class="cta-col-form reveal reveal-d2">
+        <div class="form-card">
 
-        <!-- Nome + Idade -->
-        <div class="form-row">
-          <div class="form-group">
-            <label for="nome">Nome completo</label>
-            <input
-              type="text"
-              id="nome"
-              name="nome"
-              placeholder="Seu nome"
-              required
-              autocomplete="name"
-            />
-          </div>
-          <div class="form-group">
-            <label for="idade">Idade</label>
-            <input
-              type="number"
-              id="idade"
-              name="idade"
-              placeholder="Ex: 32"
-              min="18"
-              max="99"
-              required
-            />
-          </div>
-        </div>
+          <!-- ATENÇÃO: substitua YOUR_FORM_ID pelo ID gerado no formspree.io -->
+          <form
+            action="https://formspree.io/f/YOUR_FORM_ID"
+            method="POST"
+            novalidate
+          >
+            <input type="hidden" name="_replyto" value="j.barbosa02@hotmail.com" />
+            <input type="hidden" name="_subject" value="Novo contato — JBARBOSA" />
 
-        <!-- Tempo da empresa + Funcionários -->
-        <div class="form-row">
-          <div class="form-group">
-            <label for="tempo_empresa">Há quanto tempo sua empresa existe?</label>
-            <div class="select-wrap">
-              <select id="tempo_empresa" name="tempo_empresa" required>
-                <option value="" disabled selected>Selecione</option>
-                <option value="Menos de 1 ano">Menos de 1 ano</option>
-                <option value="1 a 2 anos">1 a 2 anos</option>
-                <option value="2 a 5 anos">2 a 5 anos</option>
-                <option value="Mais de 5 anos">Mais de 5 anos</option>
-              </select>
+            <!-- Nome + Idade -->
+            <div class="form-row">
+              <div class="form-group">
+                <label for="nome">Qual é o seu nome?</label>
+                <input
+                  type="text"
+                  id="nome"
+                  name="nome"
+                  placeholder="Seu nome completo"
+                  required
+                  autocomplete="name"
+                />
+              </div>
+              <div class="form-group">
+                <label for="idade">Qual a sua idade?</label>
+                <input
+                  type="number"
+                  id="idade"
+                  name="idade"
+                  placeholder="Ex: 32"
+                  min="18"
+                  max="99"
+                  required
+                />
+              </div>
             </div>
-          </div>
-          <div class="form-group">
-            <label for="funcionarios">Quantos funcionários?</label>
-            <div class="select-wrap">
-              <select id="funcionarios" name="funcionarios" required>
-                <option value="" disabled selected>Selecione</option>
-                <option value="Somente eu">Somente eu</option>
-                <option value="2 a 5">2 a 5</option>
-                <option value="6 a 20">6 a 20</option>
-                <option value="Mais de 20">Mais de 20</option>
-              </select>
+
+            <!-- Tempo da empresa + Funcionários -->
+            <div class="form-row">
+              <div class="form-group">
+                <label for="tempo_empresa">Há quanto tempo sua empresa existe?</label>
+                <div class="select-wrap">
+                  <select id="tempo_empresa" name="tempo_empresa" required>
+                    <option value="" disabled selected>Selecione</option>
+                    <option value="Menos de 1 ano">Menos de 1 ano</option>
+                    <option value="1 a 2 anos">1 a 2 anos</option>
+                    <option value="2 a 5 anos">2 a 5 anos</option>
+                    <option value="Mais de 5 anos">Mais de 5 anos</option>
+                  </select>
+                </div>
+              </div>
+              <div class="form-group">
+                <label for="funcionarios">Quantos funcionários tem a empresa?</label>
+                <div class="select-wrap">
+                  <select id="funcionarios" name="funcionarios" required>
+                    <option value="" disabled selected>Selecione</option>
+                    <option value="Somente eu">Somente eu</option>
+                    <option value="2 a 5">2 a 5</option>
+                    <option value="6 a 20">6 a 20</option>
+                    <option value="Mais de 20">Mais de 20</option>
+                  </select>
+                </div>
+              </div>
             </div>
-          </div>
-        </div>
 
-        <!-- Instagram + Site -->
-        <div class="form-row">
-          <div class="form-group">
-            <label for="instagram">Instagram</label>
-            <input
-              type="text"
-              id="instagram"
-              name="instagram"
-              placeholder="@seuinstagram"
-            />
-          </div>
-          <div class="form-group">
-            <label for="site">Site</label>
-            <input
-              type="url"
-              id="site"
-              name="site"
-              placeholder="https://seusite.com.br"
-            />
-          </div>
-        </div>
+            <!-- Instagram + Site -->
+            <div class="form-row">
+              <div class="form-group">
+                <label for="instagram">Qual o @ do Instagram da empresa?</label>
+                <input
+                  type="text"
+                  id="instagram"
+                  name="instagram"
+                  placeholder="@seuinstagram"
+                />
+              </div>
+              <div class="form-group">
+                <label for="site">Seu negócio tem site?</label>
+                <input
+                  type="url"
+                  id="site"
+                  name="site"
+                  placeholder="https://seusite.com.br"
+                />
+              </div>
+            </div>
 
-        <!-- Tráfego pago -->
-        <div class="form-group form-group--full">
-          <label>Já investiu em tráfego pago?</label>
-          <div class="radio-group" role="radiogroup" aria-label="Já investiu em tráfego pago?">
-            <label class="radio-label">
-              <input type="radio" name="trafego_pago" value="Sim" required />
-              <span>Sim</span>
-            </label>
-            <label class="radio-label">
-              <input type="radio" name="trafego_pago" value="Não" />
-              <span>Não</span>
-            </label>
-          </div>
-        </div>
+            <!-- Tráfego pago -->
+            <div class="form-group form-group--full">
+              <label>Você já investiu em tráfego pago antes?</label>
+              <div class="radio-group" role="radiogroup" aria-label="Você já investiu em tráfego pago antes?">
+                <label class="radio-label">
+                  <input type="radio" name="trafego_pago" value="Sim" required />
+                  <span>Sim</span>
+                </label>
+                <label class="radio-label">
+                  <input type="radio" name="trafego_pago" value="Não" />
+                  <span>Não</span>
+                </label>
+              </div>
+            </div>
 
-        <!-- Submit -->
-        <div class="form-submit">
-          <button
-            type="submit"
-            class="btn-primary"
-            aria-label="Enviar formulário de contato"
-          >Enviar</button>
-        </div>
+            <!-- Submit -->
+            <div class="form-submit">
+              <button
+                type="submit"
+                class="btn-form-submit"
+                aria-label="Enviar formulário de contato"
+              >Solicitar diagnóstico</button>
+            </div>
 
-      </form>
+          </form>
+        </div>
+      </div>
 
     </div>
   </section>

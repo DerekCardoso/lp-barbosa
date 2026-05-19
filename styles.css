@@ -580,60 +580,88 @@ footer {
   .btn-outline  { margin-left: 0; margin-top: .8rem; }
 }
 
-/* ─── FORMULÁRIO DE CONTATO ─────────────────────────────────── */
-.cta-inner--form {
-  max-width: 860px;
+/* ─── FORMULÁRIO — LAYOUT SPLIT ─────────────────────────────── */
+.section-cta--split {
+  padding: 9rem 2rem;
+}
+
+.cta-split-inner {
+  max-width: 1080px;
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: 1fr 1.35fr;
+  gap: 7rem;
+  align-items: start;
+}
+
+/* Coluna de texto: fica "presa" enquanto o form rola */
+.cta-col-text {
+  position: sticky;
+  top: 9rem;
+}
+
+.cta-col-text .cta-tag,
+.cta-col-text .cta-h2,
+.cta-col-text .cta-p {
   text-align: left;
 }
 
-.cta-intro {
-  margin-bottom: 4rem;
+.cta-divider {
+  width: 36px;
+  height: 1px;
+  background: rgba(255,255,255,.14);
+  margin: 2rem 0;
 }
 
-.cta-intro .cta-tag,
-.cta-intro .cta-h2,
-.cta-intro .cta-p {
-  text-align: left;
+.cta-detail {
+  font-size: .82rem;
+  color: rgba(255,255,255,.32);
+  line-height: 1.85;
 }
 
-.contact-form {
-  width: 100%;
+/* Card branco que envolve o formulário */
+.form-card {
+  background: var(--off-wh);
+  border-radius: 14px;
+  padding: 3.2rem 3rem;
 }
 
+/* ─── CAMPOS DO FORMULÁRIO (fundo claro) ─────────────────────── */
 .form-row {
   display: grid;
   grid-template-columns: 1fr 1fr;
-  gap: 1.5rem;
-  margin-bottom: 1.5rem;
+  gap: 1.4rem;
+  margin-bottom: 1.6rem;
 }
 
 .form-group {
   display: flex;
   flex-direction: column;
-  gap: .55rem;
+  gap: .5rem;
 }
 
 .form-group--full {
-  margin-bottom: 1.5rem;
+  margin-bottom: 1.6rem;
 }
 
 .form-group label {
   font-size: .6rem;
-  letter-spacing: .22em;
+  letter-spacing: .18em;
   text-transform: uppercase;
-  color: rgba(255,255,255,.38);
+  color: rgba(0,0,0,.42);
+  font-weight: 500;
 }
 
 .form-group input,
 .form-group select {
   background: transparent;
   border: none;
-  border-bottom: 1px solid rgba(255,255,255,.15);
-  padding: .75rem 0;
+  border-bottom: 1px solid rgba(0,0,0,.14);
+  padding: .72rem 0;
   font-family: var(--sans);
   font-size: .92rem;
   font-weight: 300;
-  color: var(--white);
+  color: var(--ink);
   outline: none;
   width: 100%;
   transition: border-color .3s;
@@ -643,12 +671,12 @@ footer {
 }
 
 .form-group input::placeholder {
-  color: rgba(255,255,255,.2);
+  color: rgba(0,0,0,.22);
 }
 
 .form-group input:focus,
 .form-group select:focus {
-  border-bottom-color: rgba(255,255,255,.65);
+  border-bottom-color: var(--ink);
 }
 
 /* Select customizado */
@@ -659,53 +687,51 @@ footer {
 .select-wrap::after {
   content: '';
   position: absolute;
-  right: 0;
-  top: 50%;
-  transform: translateY(-50%);
-  width: 8px;
-  height: 8px;
-  border-right: 1px solid rgba(255,255,255,.35);
-  border-bottom: 1px solid rgba(255,255,255,.35);
-  transform: translateY(-65%) rotate(45deg);
+  right: 2px;
+  top: 44%;
+  width: 7px;
+  height: 7px;
+  border-right: 1px solid rgba(0,0,0,.35);
+  border-bottom: 1px solid rgba(0,0,0,.35);
+  transform: translateY(-50%) rotate(45deg);
   pointer-events: none;
 }
 
 .form-group select {
   cursor: pointer;
+  padding-right: 1.4rem;
 }
 
 .form-group select option {
-  background: #1a1a1a;
-  color: var(--white);
+  background: var(--off-wh);
+  color: var(--ink);
 }
 
 /* Radio buttons */
 .radio-group {
   display: flex;
-  gap: 2.5rem;
-  margin-top: .4rem;
+  gap: 2rem;
+  margin-top: .5rem;
 }
 
 .radio-label {
   display: flex;
   align-items: center;
-  gap: .75rem;
+  gap: .65rem;
   cursor: pointer;
-  font-size: .9rem;
-  color: rgba(255,255,255,.55);
+  font-size: .88rem;
+  color: rgba(0,0,0,.55);
   transition: color .3s;
 }
 
-.radio-label:hover {
-  color: var(--white);
-}
+.radio-label:hover { color: var(--ink); }
 
 .radio-label input[type="radio"] {
   -webkit-appearance: none;
   appearance: none;
   width: 16px;
   height: 16px;
-  border: 1px solid rgba(255,255,255,.25);
+  border: 1px solid rgba(0,0,0,.22);
   border-radius: 50%;
   background: transparent;
   padding: 0;
@@ -716,7 +742,7 @@ footer {
 }
 
 .radio-label input[type="radio"]:checked {
-  border-color: var(--white);
+  border-color: var(--ink);
 }
 
 .radio-label input[type="radio"]:checked::after {
@@ -726,23 +752,64 @@ footer {
   transform: translate(-50%, -50%);
   width: 6px;
   height: 6px;
-  background: var(--white);
+  background: var(--ink);
   border-radius: 50%;
 }
 
-/* Submit */
+/* Botão de submit — largura total, escuro */
 .form-submit {
-  margin-top: 2.8rem;
+  margin-top: 2.4rem;
+}
+
+.btn-form-submit {
+  display: block;
+  width: 100%;
+  font-family: var(--sans);
+  font-size: .7rem;
+  letter-spacing: .2em;
+  text-transform: uppercase;
+  font-weight: 500;
+  color: var(--white);
+  background: var(--ink);
+  border: none;
+  padding: 1.2rem 2rem;
+  border-radius: 100px;
+  cursor: pointer;
+  transition: background .35s, transform .25s, box-shadow .35s;
+}
+
+.btn-form-submit:hover {
+  background: #2a2a2a;
+  transform: translateY(-2px);
+  box-shadow: 0 16px 40px rgba(0,0,0,.18);
+}
+
+.btn-form-submit:active {
+  transform: translateY(0);
+  box-shadow: none;
 }
 
 /* Responsivo */
-@media (max-width: 600px) {
-  .form-row {
+@media (max-width: 900px) {
+  .cta-split-inner {
     grid-template-columns: 1fr;
+    gap: 3.5rem;
   }
 
-  .cta-inner--form {
-    text-align: left;
+  .cta-col-text {
+    position: static;
+  }
+
+  .cta-col-text .cta-h2 { font-size: clamp(2.2rem, 6vw, 3.5rem); }
+
+  .form-card {
+    padding: 2.4rem 1.8rem;
+  }
+}
+
+@media (max-width: 560px) {
+  .form-row {
+    grid-template-columns: 1fr;
   }
 }
 
