@@ -814,6 +814,8 @@ footer {
 }
 
 /* ─── MENSAGEM DE CONFIRMAÇÃO ───────────────────────────────── */
+[hidden] { display: none !important; }
+
 .form-success {
   display: flex;
   flex-direction: column;
@@ -850,6 +852,20 @@ footer {
   color: rgba(0,0,0,.52);
   line-height: 1.8;
   max-width: 340px;
+}
+
+/* ─── ERROS DE VALIDAÇÃO ─────────────────────────────────────── */
+.form-error {
+  display: block;
+  margin-top: .28rem;
+  font-size: .76rem;
+  color: #c0392b;
+  font-weight: 500;
+}
+
+input.input-error,
+select.input-error {
+  border-color: #c0392b !important;
 }
 
 /* ─── FOCUS VISÍVEL (acessibilidade de teclado) ──────────────── */

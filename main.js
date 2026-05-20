@@ -22,9 +22,66 @@ const form        = document.getElementById('contact-form');
 const successBox  = document.getElementById('form-success');
 const successName = document.getElementById('form-success-name');
 
+function showFieldError(container, msg) {
+  const span = document.createElement('span');
+  span.className = 'form-error';
+  span.textContent = msg;
+  container.appendChild(span);
+}
+
+function validateForm() {
+  form.querySelectorAll('.form-error').forEach(el => el.remove());
+  form.querySelectorAll('.input-error').forEach(el => el.classList.remove('input-error'));
+
+  let valid = true;
+  const seen = new Set();
+
+  form.querySelectorAll('[required]').forEach(field => {
+    if (field.type === 'radio') {
+      if (seen.has(field.name)) return;
+      seen.add(field.name);
+      if (!form.querySelector(`[name="${field.name}"]:checked`)) {
+        valid = false;
+        showFieldError(field.closest('.radio-group'), 'Selecione uma opção');
+      }
+    } else if (field.tagName === 'SELECT') {
+      if (!field.value) {
+        valid = false;
+        field.classList.add('input-error');
+        showFieldError(field.closest('.form-group'), 'Selecione uma opção');
+      }
+    } else {
+      if (!field.value.trim()) {
+        valid = false;
+        field.classList.add('input-error');
+        showFieldError(field.closest('.form-group'), 'Campo obrigatório');
+      }
+    }
+  });
+
+  if (!valid) {
+    const first = form.querySelector('.input-error, .form-error');
+    if (first) first.closest('.form-group, .radio-group')?.scrollIntoView({ behavior: 'smooth', block: 'center' });
+  }
+
+  return valid;
+}
+
 if (form) {
+  /* Limpa erro do campo ao interagir */
+  form.querySelectorAll('input, select').forEach(field => {
+    ['input', 'change'].forEach(evt => {
+      field.addEventListener(evt, () => {
+        field.classList.remove('input-error');
+        field.closest('.form-group, .radio-group')?.querySelector('.form-error')?.remove();
+      });
+    });
+  });
+
   form.addEventListener('submit', async (e) => {
     e.preventDefault();
+
+    if (!validateForm()) return;
 
     const btn = form.querySelector('button[type="submit"]');
     btn.disabled    = true;
