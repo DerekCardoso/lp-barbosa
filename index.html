@@ -192,8 +192,16 @@
       <div class="cta-col-form reveal reveal-d2">
         <div class="form-card">
 
-          <!-- ATENÇÃO: substitua YOUR_FORM_ID pelo ID gerado no formspree.io -->
+          <!-- Mensagem de confirmação (oculta até o envio) -->
+          <div id="form-success" class="form-success" aria-live="polite" hidden>
+            <div class="form-success-icon">✓</div>
+            <h3 class="form-success-title">Mensagem recebida!</h3>
+            <p class="form-success-text">Obrigado, <span id="form-success-name"></span>. Vou analisar seu negócio e entro em contato em até 24h.</p>
+          </div>
+
+          <!-- Formulário -->
           <form
+            id="contact-form"
             action="https://formspree.io/f/mykvedlg"
             method="POST"
             novalidate

@@ -813,6 +813,45 @@ footer {
   }
 }
 
+/* ─── MENSAGEM DE CONFIRMAÇÃO ───────────────────────────────── */
+.form-success {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  padding: 3rem 1rem;
+  gap: 1rem;
+}
+
+.form-success-icon {
+  width: 52px;
+  height: 52px;
+  border-radius: 50%;
+  background: var(--ink);
+  color: var(--off-wh);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.3rem;
+  margin-bottom: .5rem;
+}
+
+.form-success-title {
+  font-family: var(--serif);
+  font-size: 2rem;
+  font-weight: 300;
+  color: var(--ink);
+  line-height: 1.2;
+}
+
+.form-success-text {
+  font-size: .92rem;
+  color: rgba(0,0,0,.52);
+  line-height: 1.8;
+  max-width: 340px;
+}
+
 /* ─── FOCUS VISÍVEL (acessibilidade de teclado) ──────────────── */
 :focus { outline: none; }
 
